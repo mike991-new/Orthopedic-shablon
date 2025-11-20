@@ -93,7 +93,7 @@ class PatientController extends Controller
         $complaints[] = new InputCheck("checkbox","_instability","","yes","чувство нестабильности","");
 
 
-        return view('welcome', ['bodyparts' => $bodyparts,
+        return view('index', ['bodyparts' => $bodyparts,
                                             'complaints' => $complaints,
                                             'pains' => $pains]);
     }
