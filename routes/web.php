@@ -15,3 +15,5 @@ use App\Http\Controllers\PatientController;
 */
 
 Route::get('/', [PatientController::class, 'show']);
+
+Route::get('/createtext', [PatientController::class, 'showtext']);

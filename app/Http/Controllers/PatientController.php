@@ -97,4 +97,10 @@ class PatientController extends Controller
                                             'complaints' => $complaints,
                                             'pains' => $pains]);
     }
+
+
+    public function showtext(){
+        return view('createtext');
+    }
+    
 }
