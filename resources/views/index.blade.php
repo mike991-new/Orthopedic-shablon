@@ -20,6 +20,8 @@
 </head>
 
 <body>
+
+
   <div class="title1">ФИО</div>
   <label for="name">Введите Фамилию Имя Отчество</label>
   <input type="text" id="name" name="name">
@@ -134,7 +136,7 @@
 </details>
   
 
-
+<a href='/createtext'>Отправить</a>
 
 
 </body>
