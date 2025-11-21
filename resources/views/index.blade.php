@@ -96,24 +96,53 @@
                   <label for={{ $bodypart->shortname . $complaint->tema }}> {{ $complaint->textlabel }} </label>
               @endswitch                
             @endforeach
-
-        </section>
+            
+          </section>
         </details>
-      @endforeach
-    </section>
-  </details>
-
-
-  <details>
-    <summary><span class="title1">Anamnesis morbi</span></summary>
-    <section>
-      <textarea id="anamorbi" name="anamorbi" rows="6" cols="60"> </textarea>
-    </section>
-  </details>
-
-
-<details>
-  <summary><span class="title1">Status localis</span></summary>
+        @endforeach
+      </section>
+    </details>
+    
+    
+    <details>
+      <summary><span class="title1">Anamnesis morbi</span></summary>
+      <section>
+        <textarea id="anamorbi" name="anamorbi" rows="6" cols="60"> </textarea>
+      </section>
+    </details>
+    
+    
+    <details>
+      <summary><span class="title1">Anamnesis vitae</span></summary>
+      <section>
+        @foreach ($anamVitaes as $anamVitae)
+          @switch ($anamVitae->type)
+           @case ("checkbox")
+            <div>
+              <input type={{ $anamVitae->type }} id={{ $anamVitae->tema }} name={{ $anamVitae->tema }} value={{ $anamVitae->value }} {{ $anamVitae->check }}>
+              <label for={{ $anamVitae->tema }}> {{ $anamVitae->textlabel }} </label>
+            </div>
+            @break
+            @case ("radiobegin")
+            <div>
+            @break 
+            @case ("radioend")
+            </div>
+            @break 
+            @case ("radio")              
+              <input type={{ $anamVitae->type }} id={{ $anamVitae->tema }} name={{ $anamVitae->commun }} value={{ $anamVitae->value }} {{ $anamVitae->check }}>
+              <label for={{ $anamVitae->tema }}> {{ $anamVitae->textlabel }} </label>
+          @endswitch                
+        @endforeach
+     
+        <br>
+        <textarea id="anavitae" name="anavitae" rows="6" cols="60">	</textarea>
+      </section>
+    </details>
+    
+    
+    <details>
+      <summary><span class="title1">Status localis</span></summary>
   <section>
 
   </section>

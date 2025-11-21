@@ -43,7 +43,7 @@ class PatientController extends Controller
     public $serUrl;
     public function show()
     {   
-        $bodyparts = [];
+        $bodyparts = []; //части тела
         $bodyparts[] = new BodyPart('Шейный отдел позвоночника', 'sho');
         $bodyparts[] = new BodyPart('Грудной отдел позвоночника', 'go');
         $bodyparts[] = new BodyPart('Пояснично-крестцовый отдел позвоночника', 'pko');
@@ -69,7 +69,7 @@ class PatientController extends Controller
         $bodyparts[] = new BodyPart('Подошвенная сторона стопы справа', 'podp');
         $bodyparts[] = new BodyPart('Подошвенная сторона стопы слева', 'podl');
         
-        $pains = [];
+        $pains = []; //Боль
         $pains[] = new InputCheck("radiobegin");
         $pains[] = new InputCheck("radio","_constant","_painperiod","constant","постоянная","checked");
         $pains[] = new InputCheck("radio","_periodic","_painperiod","periodic","периодическая","");
@@ -83,8 +83,8 @@ class PatientController extends Controller
         $pains[] = new InputCheck("checkbox","_pain_walking","","yes","усиление боли при нагрузке","");
         $pains[] = new InputCheck("checkbox","_pain_start","","yes",'"стартовые боли", которые возникают после периодов покоя и проходят на фоне двигательной активности',"");
         $pains[] = new InputCheck("checkbox","_pain_night","","yes","ночные боли","");
-
-        $complaints = [];
+        
+        $complaints = []; // жалобы
         $complaints[] = new InputCheck("checkbox","_swelling","","yes","припухлость","");
         $complaints[] = new InputCheck("checkbox","_edema","","yes","отёк","");
         $complaints[] = new InputCheck("checkbox","_deformation","","yes","деформация","");
@@ -92,14 +92,23 @@ class PatientController extends Controller
         $complaints[] = new InputCheck("checkbox","_crepitus","","yes","крепитация","");
         $complaints[] = new InputCheck("checkbox","_lim_motion","","yes","ограничение объёма движений","");
         $complaints[] = new InputCheck("checkbox","_instability","","yes","чувство нестабильности","");
-
+        
+        $anamVitaes = []; //анмнез жизни
+        $anamVitaes[] = new InputCheck("checkbox","hipotyr","","yes","гипотиреоз","");
+        $anamVitaes[] = new InputCheck("checkbox","sugdiab","","yes","сахарный диабет","");
+        $anamVitaes[] = new InputCheck("checkbox","hyperton","","yes","гипертоническая болезнь","");
+        $anamVitaes[] = new InputCheck("checkbox","driver","","yes","искусственный водитель ритма","");
+        $anamVitaes[] = new InputCheck("checkbox","norm","","yes","на фоне медикаментозной терапии функциональные и лабораторный показатели находятся в пределах нормы.","");
+        
+        
         
         $serUrl = url()->current();
         
-        return view('index', ['bodyparts' => $bodyparts,
-                                            'complaints' => $complaints,
+        return view('index', [  'serUrl' => $serUrl,
+                                            'bodyparts' => $bodyparts,
                                             'pains' => $pains,
-                                            'serUrl' => $serUrl]);
+                                            'complaints' => $complaints,
+                                            'anamVitaes' => @$anamVitaes]);
     }
 
 
