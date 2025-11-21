@@ -40,6 +40,7 @@ class InputCheck
 
 class PatientController extends Controller
 {
+    public $serUrl;
     public function show()
     {   
         $bodyparts = [];
@@ -92,10 +93,13 @@ class PatientController extends Controller
         $complaints[] = new InputCheck("checkbox","_lim_motion","","yes","ограничение объёма движений","");
         $complaints[] = new InputCheck("checkbox","_instability","","yes","чувство нестабильности","");
 
-
+        
+        $serUrl = url()->current();
+        
         return view('index', ['bodyparts' => $bodyparts,
                                             'complaints' => $complaints,
-                                            'pains' => $pains]);
+                                            'pains' => $pains,
+                                            'serUrl' => $serUrl]);
     }
 
 

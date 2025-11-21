@@ -136,7 +136,7 @@
 </details>
   
 
-<a href='/createtext'>Отправить</a>
+<a href='{{ $serUrl }}/createtext'>Отправить</a>
 
 
 </body>

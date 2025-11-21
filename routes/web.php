@@ -16,4 +16,4 @@ use App\Http\Controllers\PatientController;
 
 Route::get('/', [PatientController::class, 'show']);
 
-Route::get('/ortoped/Orthopedic-shablon/public_html/createtext', [PatientController::class, 'showtext']);
+Route::get('/createtext', [PatientController::class, 'showtext']);
